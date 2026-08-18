@@ -13,7 +13,7 @@ func (h *Handler) activity(w http.ResponseWriter, r *http.Request) {
 		h.writeError(w, err)
 		return
 	}
-	rows, err := h.clk.Recent(r.Context(), 100)
+	rows, err := h.store.RecentClicksByCode(r.Context(), code, 100)
 	if err != nil {
 		h.writeError(w, err)
 		return
